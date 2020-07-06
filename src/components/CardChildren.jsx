@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 // import 'bootstrap/dist/css/bootstrap.css'
 
-function Card(props) {
+function CardChildren(props) {
   return (
     <div className="card my-3 mx-auto" style={{ width: '18rem' }}>
       {props.img && (
@@ -15,8 +15,7 @@ function Card(props) {
         />
       )}
       <div className="card-body">
-        <h5 className="card-title">{props.title}</h5>
-        <p className="card-text">{props.content}</p>
+        {props.children}
         <a href="/" className="btn btn-primary">
           <strong>Go somewhere</strong>
         </a>
@@ -25,11 +24,11 @@ function Card(props) {
   )
 }
 
-Card.propTypes = {
+CardChildren.propTypes = {
   props: PropTypes.objectOf({
     img: PropTypes.string,
     children: PropTypes.arrayOf(PropTypes.object).isRequired,
   }),
 }
 
-export default Card
+export default CardChildren
